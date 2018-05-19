@@ -1,0 +1,10 @@
+# Dependency directories
+node_modules/
+
+# Compiled files
+dist/
+
+# Backups
+getOutput
+compareCircuits
+logisim-checker.js

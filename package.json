@@ -1,0 +1,15 @@
+{
+  "name": "logisim-checker",
+  "version": "1.0.0",
+  "description": "An electron application that returns the output and compares Logisim Evolution circuits.",
+  "main": "src/main.ts",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "“Menushka <“contact@menushka.ca”>",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^2.0.1",
+    "typescript": "^2.8.3"
+  }
+}
