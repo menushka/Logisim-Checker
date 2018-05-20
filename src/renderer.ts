@@ -1,18 +1,25 @@
 const { ipcRenderer, remote } = require('electron');
+require('typeface-roboto');
+
+document.getElementById("closeButton").addEventListener("click", function (e) {
+    var window = remote.getCurrentWindow();
+    window.close();
+});
+
+document.getElementById("minimizeButton").addEventListener("click", function (e) {
+    var window = remote.getCurrentWindow();
+    window.minimize(); 
+});
 
 const holder = document.getElementById('drop');
 
-holder.ondragover = () => {
+function ignoreEvent() {
     return false;
-};
+}
 
-holder.ondragleave = () => {
-    return false;
-};
-
-holder.ondragend = () => {
-    return false;
-};
+holder.ondragover = ignoreEvent;
+holder.ondragleave = ignoreEvent;
+holder.ondragend = ignoreEvent;
 
 holder.ondrop = (e) => {
     e.preventDefault();

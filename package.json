@@ -2,7 +2,7 @@
   "name": "logisim-checker",
   "version": "1.0.0",
   "description": "An electron application that returns the output and compares Logisim Evolution circuits.",
-  "main": "src/main.ts",
+  "main": "dist/main.js",
   "scripts": {
     "start": "electron ."
   },
@@ -11,5 +11,8 @@
   "devDependencies": {
     "electron": "^2.0.1",
     "typescript": "^2.8.3"
+  },
+  "dependencies": {
+    "typeface-roboto": "0.0.54"
   }
 }

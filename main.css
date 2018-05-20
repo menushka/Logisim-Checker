@@ -1,11 +1,100 @@
-body {
-    padding: 10px;
-    margin: 0;
-    text-align: center;
+html {
+    height: 100%;
 }
 
-#drop {
-    background: gray;
-    width: 400px;
-    height: 400px;
+body {
+    font-family: "Roboto";
+    background-color: #34495E;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    -webkit-app-region: drag;
+}
+
+.menuButton {
+    position: absolute;
+    top: 15px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+#closeButton {
+    left: 15px;
+    background-color: #E74C3C;
+}
+
+#minimizeButton {
+    left: 35px;
+    background-color: #F1C40F;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+}
+
+.divider {
+    background-color: #2C3E50;
+    width: 1px;
+    height: 80vh;
+    box-sizing: border-box;
+    margin: 10vh 0;
+}
+
+.group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 50px 0px;
+}
+
+.output {
+    flex-grow: 1;
+}
+
+.compare {
+    flex-grow: 1;
+}
+
+.compareTable {
+    width: 80%;
+    margin: 0px 10%;
+}
+
+.fileDrop {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #2C3E50;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 50px auto;
+    border-radius: 8px;
+}
+
+.fileDrop img {
+    width: 50%;
+    margin: 0px auto 10px auto;
+    height: 50%;
+}
+
+.fileDrop p {
+    font-size: 11px;
+    color: #1E2A38;
+    margin: 0px;
+}
+
+.submitButton {
+    background-color: #2980B9;
+    width: 100px;
+    height: 35px;
+    line-height: 35px;
+    margin: 0 auto;
+    border-radius: 4px;
+    color: #ECF0F1;
+    font-size: 11px;
 }
