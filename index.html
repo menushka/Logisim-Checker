@@ -10,10 +10,11 @@
     <div id="minimizeButton" class="menuButton"></div>
     <div class="container">
         <div class="group output">
-            <div class="fileDrop">
+            <div id="outputFile" class="fileDrop">
                 <img src="imgs/file.png">
                 <p>Add File</p>
             </div>
+            <div class="feedback"></div>
             <div class="submitButton">GET OUTPUT</div>
         </div>
         <div class="divider"></div>
@@ -21,19 +22,20 @@
             <table class="compareTable">
                 <tr>
                     <td>
-                        <div class="fileDrop">
+                        <div id="compareFile1" class="fileDrop">
                             <img src="imgs/file.png">
                             <p>Add File</p>
                         </div>
                     </td>
                     <td>
-                        <div class="fileDrop">
+                        <div id="compareFile2" class="fileDrop">
                             <img src="imgs/file.png">
                             <p>Add File</p>
                         </div>
                     </td>
                 </tr>
             </table>
+            <div class="feedback"></div>
             <div class="submitButton">COMPARE</div>
     </div>
     <script src="dist/renderer.js"></script>
