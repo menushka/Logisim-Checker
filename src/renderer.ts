@@ -11,15 +11,22 @@ let outputPath = "";
 let comparePath1 = "";
 let comparePath2 = "";
 
+const simulationTimeout = 5000;
+
 function execute(command: string) {
     return new Promise((resolve, reject) => {
-        exec(command, (error: any, stdout: any, stderr: any) => {
+        const child = exec(command, (error: any, stdout: any, stderr: any) => {
             if (error || stderr) {
-                reject();
+                reject(error | stderr);
             }
 
             resolve(stdout);
         })
+
+        const timer = setTimeout(() => {
+            child.kill();
+            reject("Simulation timeout");
+        }, simulationTimeout);
     });
 }
 
@@ -33,9 +40,8 @@ function minimizeWindow(event: MouseEvent) {
     window.minimize(); 
 }
 
-function ignoreEvent() {
-    return false;
-}
+function allowEvent() { return false; }
+function ignoreEvent() { return false; }
 
 function setupFileClick(element: HTMLElement) {
     element.addEventListener("click", (e: MouseEvent) => {
@@ -110,21 +116,28 @@ async function getOutput() {
     }
 
     setFeedback("Running simulation...", "yellow", "Output");
-    const stdout = await execute('java -jar "' + jarPath + '" "' + outputPath + '" -tty table').catch(() => {
-        setFeedback("Error running file", "red", "Output");
+    const stdout = await execute('java -jar "' + jarPath + '" "' + outputPath + '" -tty table').catch((error: string) => {
+        setFeedback(error, "red", "Output");
         return;
     });
+    
+    if (!stdout) {
+        return;
+    }
 
     setFeedback("Simulation complete", "green", "Output");
 
+    const dir = path.dirname(outputPath);
+    const fileName = path.basename(outputPath).split(".")[0];
+    const savePath = path.join(dir, fileName + "_output.txt");
     dialog.showSaveDialog(remote.getCurrentWindow(), {
         title: "Save Simulation Output",
-        defaultPath: path.dirname(outputPath)
+        defaultPath: savePath
     }, (filePath) => {
         if (filePath) {
             fs.writeFile(filePath, stdout, (err: any) => {
                 console.log("The file was saved!");
-            }); 
+            });
         } else {
             setFeedback("Save location not selected", "red", "Output");
         }
@@ -156,8 +169,8 @@ async function compare() {
     const stdouts = await Promise.all([
         execute('java -jar "' + jarPath + '" "' + comparePath1 + '" -tty table'),
         execute('java -jar "' + jarPath + '" "' + comparePath2 + '" -tty table')
-    ]).catch(() => {
-        setFeedback("Error running file", "red", "Compare");
+    ]).catch((error: string) => {
+        setFeedback(error, "red", "Compare");
         return;
     });
     
@@ -169,12 +182,19 @@ async function compare() {
     if (similarity === 1) {
         setFeedback("Circuit output is the same!", "green", "Compare");
     } else {
-        setFeedback("Circuit output is not the same!", "red", "Compare");
+        setFeedback("Circuit output is not the same. Similarity: " + Math.round(similarity * 100) + "%", "red", "Compare");
     }
 }
 
 document.getElementById("closeButton").addEventListener("click", closeWindow);
 document.getElementById("minimizeButton").addEventListener("click", minimizeWindow);
+
+window.addEventListener("dragover",function(e){
+    e.preventDefault();
+},false);
+window.addEventListener("drop",function(e){
+    e.preventDefault();
+},false);
 
 setupFileDrop(document.getElementById("outputFile"));
 setupFileDrop(document.getElementById("compareFile1"));

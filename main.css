@@ -60,11 +60,12 @@ body {
 }
 
 .divider {
-    background-color: #2C3E50;
+    background-color: #29394a;
     width: 1px;
     height: 80vh;
     box-sizing: border-box;
     margin: 10vh 0;
+    border-radius: 50%;
 }
 
 .group {
@@ -111,7 +112,7 @@ body {
 
 .fileDrop p {
     font-size: 11px;
-    color: #1E2A38;
+    color: #0f141b;
     margin: 0px;
 }
 
