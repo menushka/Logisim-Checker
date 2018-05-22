@@ -14,7 +14,6 @@ declare global {
 }
   
 function createWindow () {
-    // win = new BrowserWindow({width: 800, height: 600});
     win = new BrowserWindow({
         width: 600, 
         height: 350,

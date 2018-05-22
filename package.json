@@ -4,12 +4,15 @@
   "description": "An electron application that returns the output and compares Logisim Evolution circuits.",
   "main": "dist/main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build-mac": "electron-packager . 'Logisim Checker' --platform=darwin --arch=x64 --icon=icons/icon.icns --out=builds --prune=true --asar --overwrite",
+    "build-win": "electron-packager . 'Logisim Checker' --platform=win32 --arch=ia32 --icon=icons/icon.ico --out=builds --prune=true --asar --overwrite"
   },
   "author": "“Menushka <“contact@menushka.ca”>",
   "license": "ISC",
   "devDependencies": {
     "electron": "^2.0.1",
+    "electron-packager": "^12.1.0",
     "typescript": "^2.8.3"
   },
   "dependencies": {
