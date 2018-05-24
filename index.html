@@ -6,12 +6,38 @@
     <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
-    <select>
-        <option>Get Output</option>
-        <option>Compare</option>
-    </select>
-    <br>
-    <div id="drop"></div>
+    <div id="closeButton" class="menuButton"></div>
+    <div id="minimizeButton" class="menuButton"></div>
+    <div class="container">
+        <div class="group output">
+            <div id="outputFile" class="fileDrop">
+                <img src="imgs/file.png">
+                <p>Add File</p>
+            </div>
+            <div id="feedbackOutput" class="feedback"></div>
+            <div id="submitOutput" class="submitButton">GET OUTPUT</div>
+        </div>
+        <div class="divider"></div>
+        <div class="group compare">
+            <table class="compareTable">
+                <tr>
+                    <td>
+                        <div id="compareFile1" class="fileDrop">
+                            <img src="imgs/file.png">
+                            <p>Add File</p>
+                        </div>
+                    </td>
+                    <td>
+                        <div id="compareFile2" class="fileDrop">
+                            <img src="imgs/file.png">
+                            <p>Add File</p>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div id="feedbackCompare" class="feedback"></div>
+            <div id="submitCompare" class="submitButton">COMPARE</div>
+    </div>
     <script src="dist/renderer.js"></script>
 </body>
 </html>

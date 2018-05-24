@@ -1,11 +1,158 @@
-body {
-    padding: 10px;
-    margin: 0;
-    text-align: center;
+@font-face {
+    font-family: "Roboto";
+    src: url("fonts/Roboto-Regular.ttf");
 }
 
-#drop {
-    background: gray;
-    width: 400px;
-    height: 400px;
+html {
+    height: 100%;
+}
+
+body {
+    font-family: "Roboto";
+    background-color: #34495E;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    -webkit-app-region: drag;
+}
+
+.menuButton {
+    position: absolute;
+    top: 15px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    -webkit-app-region: no-drag;
+}
+
+#closeButton {
+    left: 15px;
+    background-color: #E74C3C;
+}
+
+#closeButton:hover {
+    cursor: pointer;
+}
+
+#closeButton:active {
+    cursor: pointer;
+    background-color: rgb(139, 47, 37);
+}
+
+#minimizeButton {
+    left: 35px;
+    background-color: #F1C40F;
+}
+
+#minimizeButton:hover {
+    cursor: pointer;
+}
+
+#minimizeButton:active {
+    cursor: pointer;
+    background-color: rgb(165, 141, 47);
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+}
+
+.divider {
+    background-color: #29394a;
+    width: 1px;
+    height: 80vh;
+    box-sizing: border-box;
+    margin: 10vh 0;
+    border-radius: 50%;
+}
+
+.group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 50px 0px;
+}
+
+.output {
+    flex-grow: 1;
+}
+
+.compare {
+    flex-grow: 1;
+}
+
+.compareTable {
+    width: 80%;
+    margin: 0px 10%;
+}
+
+.fileDrop {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #2C3E50;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    border-radius: 8px;
+    -webkit-app-region: no-drag;
+}
+
+.fileDrop:hover {
+    cursor: pointer;
+}
+
+.fileDrop img {
+    width: 50%;
+    margin: 0px auto 10px auto;
+    height: 50%;
+}
+
+.fileDrop p {
+    font-size: 11px;
+    color: #0f141b;
+    margin: 0px;
+}
+
+.feedback {
+    width: 100%;
+    height: 50px;
+    font-size: 11px;
+    line-height: 50px;
+}
+
+.feedbackGood {
+    color: #2ECC71;
+}
+
+.feedbackBad {
+    color: #E74C3C;
+}
+
+.feedbackWaiting {
+    color: #E67E22;
+}
+
+.submitButton {
+    background-color: #2980B9;
+    width: 100px;
+    height: 35px;
+    line-height: 35px;
+    margin: 0 auto;
+    border-radius: 4px;
+    color: #ECF0F1;
+    font-size: 11px;
+    -webkit-app-region: no-drag;
+}
+
+.submitButton:hover {
+    cursor: pointer;
+}
+
+.submitButton:active {
+    background-color: rgb(32, 99, 145);
 }
