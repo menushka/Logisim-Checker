@@ -1,4 +1,5 @@
-const { ipcRenderer, remote } = require('electron');
+require ('hazardous');
+const { remote } = require('electron');
 const dialog = remote.dialog;
 const path = require('path');
 const { exec } = require('child_process');
@@ -116,6 +117,7 @@ async function getOutput() {
     }
 
     setFeedback("Running simulation...", "yellow", "Output");
+    console.log('java -jar "' + jarPath + '" "' + outputPath + '" -tty table');
     const stdout = await execute('java -jar "' + jarPath + '" "' + outputPath + '" -tty table').catch((error: string) => {
         setFeedback(error, "red", "Output");
         return;

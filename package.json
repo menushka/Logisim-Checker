@@ -5,8 +5,8 @@
   "main": "dist/main.js",
   "scripts": {
     "start": "electron .",
-    "build-mac": "electron-packager . 'Logisim Checker' --platform=darwin --arch=x64 --icon=icons/icon.icns --out=builds --prune=true --asar --overwrite",
-    "build-win": "electron-packager . 'Logisim Checker' --platform=win32 --arch=ia32 --icon=icons/icon.ico --out=builds --prune=true --asar --overwrite"
+    "build-mac": "electron-packager . 'Logisim Checker' --platform=darwin --arch=x64 --icon=icons/icon.icns --out=builds --prune=true --asar.unpack=logisim-evolution.jar --overwrite",
+    "build-win": "electron-packager . 'Logisim Checker' --platform=win32 --arch=ia32 --icon=icons/icon.ico --out=builds --prune=true --asar.unpack=logisim-evolution.jar --overwrite"
   },
   "author": "“Menushka <“contact@menushka.ca”>",
   "license": "ISC",
@@ -16,6 +16,7 @@
     "typescript": "^2.8.3"
   },
   "dependencies": {
+    "hazardous": "^0.3.0",
     "string-similarity": "^1.2.0"
   }
 }
