@@ -6,11 +6,12 @@ Logisim Checker is a simple tool to quickly analyze Logisim Evolution circuit fi
 
 ## Download
 
-The latest version can be downloaded from the [releases page].  **Make sure you have Java installed on your system.**
+The latest version can be downloaded from the [releases page].  [**Make sure you have the Java JDK installed on your system. Just the JRE won't work.**]
 
 *A Linux version should technically be able to be built, but I didn't have a install version to test on so I didn't bother.  Instructions on how to compile and build your own version are included below.*
 
 [releases page]: https://github.com/menushka/Logisim-Checker/releases
+[**Make sure you have the Java JDK installed on your system. Just the JRE won't work.**]: http://www.oracle.com/technetwork/java/javase/downloads/index.html
 
 ## How to Use
 
