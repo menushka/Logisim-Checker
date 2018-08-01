@@ -1,6 +1,6 @@
 {
   "name": "logisim-checker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An electron application that returns the output and compares Logisim Evolution circuits.",
   "main": "dist/main.js",
   "scripts": {
