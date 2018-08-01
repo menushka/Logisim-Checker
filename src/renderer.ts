@@ -12,7 +12,7 @@ let outputPath = "";
 let comparePath1 = "";
 let comparePath2 = "";
 
-const simulationTimeout = 5000;
+const simulationTimeout = 10000;
 
 function execute(command: string) {
     return new Promise((resolve, reject) => {
